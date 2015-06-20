@@ -1,0 +1,32 @@
+{
+    "name": "positibe/unique-views-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony PositibeUniqueViewsBundle for count the number of views of a object model",
+    "keywords": ["news","post","views","unique views", "views counter","positibe", "positibelabs"],
+    "homepage": "http://positibelabs.blogspot.com/bundles/news",
+    "license": "Private",
+    "version": "0.1.0.2",
+    "authors": [
+        {
+            "name": "Pedro Carlos Abreu Jiménez",
+            "email": "pcabreus@gmail.com",
+            "homepage": "http://pcabreus.blogspot.com"
+        },
+        {
+            "name": "PositibeLabs Cooperative",
+            "homepage": "https://github.com/positibelabs"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "~2.3",
+        "twig/twig": "*"
+    },
+    "autoload": {
+        "psr-4": { "Positibe\\Bundle\\UniqueViewsBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.0.x-dev"
+        }
+    }
+}
