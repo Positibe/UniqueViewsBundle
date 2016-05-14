@@ -68,6 +68,8 @@ Documentation
         }
     }
 
+``Tips:`` You can use the `AbstractVisitable` or `VisitableTrait`.
+
 2. In the template countable you can to count a views via `positibe_unique_views` function.
 
     {# app/Resources/views/post/show.html.twig #}
