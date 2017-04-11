@@ -1,17 +1,14 @@
 services:
-#    positibe_unique_views.example:
-#        class: Positibe\Bundle\UniqueViewsBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
     positibe_unique_views.views_counter:
         class: Positibe\Bundle\UniqueViewsBundle\Counter\SessionCounter
-        arguments: [@session, @positibe_unique_views.visitable_manager]
+        arguments: ["@session", "@positibe_unique_views.visitable_manager"]
 
     positibe_unique_views.visitable_manager:
         class: Positibe\Bundle\UniqueViewsBundle\Model\VisitableManager
-        arguments: [@doctrine.orm.default_entity_manager]
+        arguments: ["@doctrine.orm.default_entity_manager"]
 
     positibe_unique_views.twig_extension:
         class: Positibe\Bundle\UniqueViewsBundle\Twig\Extension\UniqueViewsExtension
-        arguments: [@positibe_unique_views.views_counter]
+        arguments: ["@positibe_unique_views.views_counter"]
         tags:
             - { name: twig.extension }
