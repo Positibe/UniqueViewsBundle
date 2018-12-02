@@ -1,8 +1,16 @@
 <?php
+/**
+ * This file is part of the PositibeLabs Projects.
+ *
+ * (c) Pedro Carlos Abreu <pcabreus@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Positibe\Bundle\UniqueViewsBundle\Model;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class VisitableManager
@@ -12,11 +20,11 @@ use Doctrine\Common\Persistence\ObjectManager;
  */
 class VisitableManager implements VisitableManagerInterface {
 
-    private $om;
+    private $entityManager;
 
-    public function __construct(ObjectManager $om)
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->om = $om;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -26,7 +34,7 @@ class VisitableManager implements VisitableManagerInterface {
     {
         $visitable->onNewViewed();
 
-        $this->om->persist($visitable);
-        $this->om->flush();
+        $this->entityManager->persist($visitable);
+        $this->entityManager->flush();
     }
 } 

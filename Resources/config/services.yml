@@ -1,14 +1,14 @@
 services:
-    positibe_unique_views.views_counter:
-        class: Positibe\Bundle\UniqueViewsBundle\Counter\SessionCounter
-        arguments: ["@session", "@positibe_unique_views.visitable_manager"]
+    _defaults:
+       autowire: true
+       autoconfigure: true
+       public: false
 
-    positibe_unique_views.visitable_manager:
-        class: Positibe\Bundle\UniqueViewsBundle\Model\VisitableManager
-        arguments: ["@doctrine.orm.default_entity_manager"]
+    Positibe\Bundle\UniqueViewsBundle\:
+       resource: '../../*'
+       exclude: '../../{DependencyInjection,Resources}'
 
-    positibe_unique_views.twig_extension:
-        class: Positibe\Bundle\UniqueViewsBundle\Twig\Extension\UniqueViewsExtension
-        arguments: ["@positibe_unique_views.views_counter"]
-        tags:
-            - { name: twig.extension }
+    Positibe\Bundle\UniqueViewsBundle\Counter\SessionCounter:
+        public: true
+
+    Positibe\Bundle\UniqueViewsBundle\Counter\UniqueViewsCounterInterface: '@Positibe\Bundle\UniqueViewsBundle\Counter\SessionCounter'

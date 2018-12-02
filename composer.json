@@ -5,7 +5,7 @@
     "keywords": ["news","post","views","unique views", "views counter","positibe", "positibelabs"],
     "homepage": "http://positibelabs.com/bundles/unique_views",
     "license": "MIT",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "authors": [
         {
             "name": "Pedro Carlos Abreu Jiménez",
@@ -18,14 +18,14 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "~2.8||~3.0"
+        "symfony/framework-bundle": "^3.4||^4.0"
     },
     "autoload": {
         "psr-4": { "Positibe\\Bundle\\UniqueViewsBundle\\": "" }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-master": "1.2.x-dev"
         }
     }
 }

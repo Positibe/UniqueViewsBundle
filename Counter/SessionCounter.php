@@ -1,11 +1,19 @@
 <?php
+/**
+ * This file is part of the PositibeLabs Projects.
+ *
+ * (c) Pedro Carlos Abreu <pcabreus@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Positibe\Bundle\UniqueViewsBundle\Counter;
 
+use Positibe\Bundle\UniqueViewsBundle\Model\VisitableManager;
+use Positibe\Bundle\UniqueViewsBundle\Model\VisitableInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-use Positibe\Bundle\UniqueViewsBundle\Model\VisitableInterface;
-use Positibe\Bundle\UniqueViewsBundle\Model\VisitableManagerInterface;
 
 /**
  * Class SessionCounter
@@ -23,10 +31,11 @@ class SessionCounter implements UniqueViewsCounterInterface
     private $visitableManager;
 
     /**
+     * SessionCounter constructor.
      * @param SessionInterface $session
-     * @param VisitableManagerInterface $visitableManager
+     * @param VisitableManager $visitableManager
      */
-    public function __construct(SessionInterface $session, VisitableManagerInterface $visitableManager)
+    public function __construct(SessionInterface $session, VisitableManager $visitableManager)
     {
         $this->session = $session;
         $this->visitableManager = $visitableManager;
