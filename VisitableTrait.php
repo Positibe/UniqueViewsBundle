@@ -8,17 +8,21 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Positibe\Bundle\UniqueViewsBundle\Model;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * Class AbstractVisitable
+ * Trait VisitableTrait
  * @package Positibe\Bundle\UniqueViewsBundle\Model
  *
  * @author Pedro Carlos Abreu <pcabreus@gmail.com>
  */
-abstract class AbstractVisitable implements VisitableInterface {
-
+trait VisitableTrait
+{
+    /**
+     * @ORM\Column(name="count_views", type="integer")
+     */
     protected $countViews = 0;
 
     /**
@@ -26,7 +30,8 @@ abstract class AbstractVisitable implements VisitableInterface {
      */
     public function getVisitableType()
     {
-        return strtolower(get_class($this));
+        $classPart = explode('\\',get_class());
+        return strtolower($classPart[count($classPart) - 1]);
     }
 
     /**
@@ -44,5 +49,4 @@ abstract class AbstractVisitable implements VisitableInterface {
     {
         return $this->countViews;
     }
-
 } 

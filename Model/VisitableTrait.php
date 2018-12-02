@@ -10,6 +10,7 @@
 
 namespace Positibe\Bundle\UniqueViewsBundle\Model;
 
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Trait VisitableTrait
